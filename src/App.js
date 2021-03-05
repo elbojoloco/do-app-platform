@@ -1,13 +1,29 @@
 import logo from './logo.svg';
 import './App.css';
 
-import EchoClient from './Echo';
+// import EchoClient from './Echo';
+
+import Echo from 'laravel-echo'
+
+window.Pusher = require('pusher-js');
+
+window.Echo = new Echo({
+    broadcaster: 'pusher',
+    key: 'bojo-socket',
+    wsHost: 'websocket.bojodev.io',
+    wsPort: 6001,
+    wssPort: 6001,
+    disableStats: true,
+    forceTLS: true,
+    enabledTransports: ['ws', 'wss'],
+disabledTransports: ['sockjs', 'xhr_polling', 'xhr_streaming']
+});
 
 function App() {
 
-  EchoClient.channel('chat').listen('MessageSent', e => {
-    console.log(e)
-  })
+  // EchoClient.channel('chat').listen('MessageSent', e => {
+  //   console.log(e)
+  // })
 
   return (
     <div className="App">
