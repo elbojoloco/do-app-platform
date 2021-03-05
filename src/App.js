@@ -1,13 +1,20 @@
 import logo from './logo.svg';
 import './App.css';
 
+import EchoClient from './Echo';
+
 function App() {
+
+  EchoClient.channel('chat').listen('MessageSent', e => {
+    console.log(e)
+  })
+
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Hello Ioan.
+          Socket test
         </p>
         <a
           className="App-link"
