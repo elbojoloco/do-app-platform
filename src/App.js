@@ -12,7 +12,7 @@ window.Echo = new Echo({
     key: 'bojo-socket',
     wsHost: 'websocket.bojodev.io',
     wsPort: 6001,
-    wssPort: 6001,
+    wssPort: 443,
     disableStats: true,
     forceTLS: true,
     enabledTransports: ['ws', 'wss'],
